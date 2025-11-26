@@ -1,0 +1,27 @@
+name: priem_desk_gemin
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  # Versión del SDK ajustada a una compatible actual y estable (ejemplo: 3.0.0 o superior)
+  # Usaremos 3.0.0+ para mantener compatibilidad con las últimas librerías.
+  sdk: '>=3.0.0 <4.0.0' 
+
+dependencies:
+  # Las dependencias de Flutter van primero
+  flutter:
+    sdk: flutter
+  
+  # Dependencias de Riverpod agregadas y alineadas correctamente
+  flutter_riverpod: ^2.5.1
+  riverpod: ^2.5.1 # Asegúrate de que esta dependencia no tenga espacios al inicio
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0 # Se ajustó a una versión moderna
+
+flutter:
+  uses-material-design: true
+
