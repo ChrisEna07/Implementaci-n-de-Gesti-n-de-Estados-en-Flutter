@@ -113,7 +113,7 @@ class _UsuariosScreenState extends State<UsuariosScreen> {
                       const InputDecoration(labelText: 'Correo Electrónico'),
                 ),
                 DropdownButtonFormField<String>(
-                  value: user?.role ?? 'Cliente',
+                  initialValue: user?.role ?? 'Cliente',
                   decoration: const InputDecoration(labelText: 'Rol'),
                   items: ['Administrador', 'Mecánico', 'Cliente', 'Vendedor']
                       .map((role) =>

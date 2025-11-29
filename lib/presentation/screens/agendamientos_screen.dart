@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/models/appointment_model.dart';
-import '../../data/models/user_model.dart';
-import '../../data/models/moto_model.dart';
 import '../../domain/providers/appointment_notifier.dart';
 import '../../domain/providers/client_notifier.dart';
 import '../../domain/providers/moto_notifier.dart';
@@ -140,7 +138,7 @@ class _AppointmentListItem extends StatelessWidget {
             color: appointment.isConfirmed
                 ? Colors.blue.shade700
                 : Colors.grey.shade700),
-        title: Text('${appointment.serviceType}',
+        title: Text(appointment.serviceType,
             style: const TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -325,7 +323,7 @@ class _AppointmentFormState extends State<_AppointmentForm> {
             const SizedBox(height: 20),
             if (widget.appointmentToEdit == null) ...[
               DropdownButtonFormField<int>(
-                value: _selectedClientId,
+                initialValue: _selectedClientId,
                 decoration: const InputDecoration(labelText: 'Cliente'),
                 items: availableClients
                     .map((c) =>
@@ -339,7 +337,7 @@ class _AppointmentFormState extends State<_AppointmentForm> {
             ],
             if (widget.appointmentToEdit == null) ...[
               DropdownButtonFormField<int>(
-                value: _selectedMotoId,
+                initialValue: _selectedMotoId,
                 decoration:
                     const InputDecoration(labelText: 'Motocicleta a Revisar'),
                 items: availableMotos
@@ -355,7 +353,7 @@ class _AppointmentFormState extends State<_AppointmentForm> {
               const SizedBox(height: 10),
             ],
             DropdownButtonFormField<String>(
-              value: _selectedServiceType,
+              initialValue: _selectedServiceType,
               decoration: const InputDecoration(labelText: 'Tipo de Servicio'),
               items: _serviceTypes
                   .map((service) =>
@@ -368,7 +366,7 @@ class _AppointmentFormState extends State<_AppointmentForm> {
             const SizedBox(height: 10),
             DropdownButtonFormField<int>(
               // CORRECCIÓN: Cambiar a int
-              value: _selectedEmployeeId,
+              initialValue: _selectedEmployeeId,
               decoration: const InputDecoration(labelText: 'Mecánico Asignado'),
               items: availableEmployees
                   .map((e) => DropdownMenuItem(

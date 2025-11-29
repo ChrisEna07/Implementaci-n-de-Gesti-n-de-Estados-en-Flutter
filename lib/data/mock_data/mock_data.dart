@@ -10,7 +10,7 @@ import '../models/service_order_model.dart'; // Nuevo
 
 final List<UserModel> mockUsers = [
   // 1. Administrador (Para Login)
-  UserModel(
+  const UserModel(
       id: 1,
       name: 'Isabella Gómez',
       email: 'admin@taller.com',
@@ -19,7 +19,7 @@ final List<UserModel> mockUsers = [
       token: 'token_admin'),
 
   // 2. Mecánico/Empleado (Para Login y Asignación de Órdenes)
-  UserModel(
+  const UserModel(
       id: 2,
       name: 'Ricardo Mecánico',
       email: 'mecanico@taller.com',
@@ -28,7 +28,7 @@ final List<UserModel> mockUsers = [
       token: 'token_mec'),
 
   // 3. Cliente 1 (Andrés) - Tiene motos asociadas (PLACA: FDN123)
-  UserModel(
+  const UserModel(
       id: 3,
       name: 'Andrés Cliente',
       email: 'andres.c@mail.com',
@@ -37,7 +37,7 @@ final List<UserModel> mockUsers = [
       token: 'token_cli_3'),
 
   // 4. Cliente 2 (Daniela) - Tiene motos asociadas (PLACA: ABC456)
-  UserModel(
+  const UserModel(
       id: 4,
       name: 'Daniela Ríos',
       email: 'daniela.rios@mail.com',
@@ -46,7 +46,7 @@ final List<UserModel> mockUsers = [
       token: 'token_cli_4'),
 
   // 5. Cliente 3 (Jorge) - No tiene motos asociadas
-  UserModel(
+  const UserModel(
       id: 5,
       name: 'Jorge Valencia',
       email: 'jorge.v@mail.com',

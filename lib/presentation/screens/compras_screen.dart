@@ -122,7 +122,7 @@ class _PurchaseListItem extends StatelessWidget {
             color: purchase.isCompleted
                 ? Colors.green.shade700
                 : Colors.orange.shade700),
-        title: Text('Compra #${purchase.id} - ${proveedorName}',
+        title: Text('Compra #${purchase.id} - $proveedorName',
             style: const TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(
             'Fecha: ${purchase.date.toString().substring(0, 10)}\nTotal: \$${purchase.totalAmount.toStringAsFixed(2)} - ${purchase.items.length} ítems.'),
@@ -161,7 +161,7 @@ class _PurchaseForm extends StatefulWidget {
 class _PurchaseFormState extends State<_PurchaseForm> {
   final _formKey = GlobalKey<FormState>();
   int? _selectedProveedorId;
-  List<PurchaseItemModel> _items = [];
+  final List<PurchaseItemModel> _items = [];
   bool _isLoading = false;
 
   void _addItem() {
@@ -328,7 +328,7 @@ class _PurchaseFormState extends State<_PurchaseForm> {
                   ],
                 ),
               );
-            }).toList(),
+            }),
 
             TextButton.icon(
               onPressed: _addItem,

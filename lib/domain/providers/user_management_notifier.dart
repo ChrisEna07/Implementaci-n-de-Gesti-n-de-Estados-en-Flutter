@@ -20,7 +20,7 @@ final roleScheduleProvider = Provider((ref) => {
     });
 
 class EmployeeNotifier extends StateNotifier<List<UserModel>> {
-  EmployeeNotifier(List<UserModel> initialState) : super(initialState);
+  EmployeeNotifier(super.initialState);
 
   String _currentSearchTerm = '';
 

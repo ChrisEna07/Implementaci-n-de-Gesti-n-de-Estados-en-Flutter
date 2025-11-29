@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/models/purchase_model.dart';
-import '../../data/mock_data/mock_data.dart'; // Para Proveedores
+// Para Proveedores
 
 // Proveedor para la lista de Compras (HU_100)
 final purchaseProvider =
@@ -90,7 +90,7 @@ class PurchaseNotifier extends StateNotifier<List<PurchaseModel>> {
     );
     _allPurchases.add(newPurchase);
     _filterPurchases();
-    return 'Orden de Compra #${newId} registrada con éxito. Total: \$${newPurchase.totalAmount.toStringAsFixed(2)}';
+    return 'Orden de Compra #$newId registrada con éxito. Total: \$${newPurchase.totalAmount.toStringAsFixed(2)}';
   }
 
   Future<String> markAsCompleted(PurchaseModel purchase) async {

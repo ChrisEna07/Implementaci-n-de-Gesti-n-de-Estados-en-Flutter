@@ -127,26 +127,6 @@ class _MotoListItem extends StatelessWidget {
                 style: const TextStyle(fontSize: 10, color: Colors.grey)),
           ],
         ),
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // HU_90: Botón de Inactivar
-            IconButton(
-              icon: Icon(moto.isActive ? Icons.toggle_on : Icons.toggle_off,
-                  color: moto.isActive ? Colors.green : Colors.grey),
-              onPressed: () async {
-                final result =
-                    await motoNotifier.toggleStatus(moto, !moto.isActive);
-                // Evitamos el error de BuildContext
-                if (!context.mounted) return;
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(result)),
-                );
-              },
-              tooltip: moto.isActive ? 'Inactivar' : 'Activar',
-            ),
-          ],
-        ),
         onTap: () {
           // Abrir formulario para editar (HU_92)
           final parentState =
@@ -270,7 +250,7 @@ class _MotoFormState extends State<_MotoForm> {
             // Campo de Selección de Cliente (Solo en Registro)
             if (widget.motoToEdit == null) ...[
               DropdownButtonFormField<int>(
-                value: _selectedClientId,
+                initialValue: _selectedClientId,
                 decoration: const InputDecoration(labelText: 'Cliente Dueño'),
                 items: widget.clients.map((client) {
                   return DropdownMenuItem<int>(

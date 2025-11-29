@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/models/proveedor_model.dart';
-import '../../data/mock_data/mock_data.dart'; // Asumo que mockData existe
+// Asumo que mockData existe
 
 // Proveedor para la lista de proveedores (similar a clientProvider)
 final proveedorProvider =
@@ -94,7 +94,7 @@ class ProveedorNotifier extends StateNotifier<List<ProveedorModel>> {
         direccion: direccion);
     _allProveedores.add(newProveedor);
     _filterProveedores(); // Refresca la vista
-    return 'Proveedor ${nombre} registrado con éxito.';
+    return 'Proveedor $nombre registrado con éxito.';
   }
 
   Future<String> editProveedor(ProveedorModel original, String nombre,
@@ -110,7 +110,7 @@ class ProveedorNotifier extends StateNotifier<List<ProveedorModel>> {
       direccion: direccion,
     );
     _filterProveedores();
-    return 'Proveedor ${nombre} actualizado con éxito.';
+    return 'Proveedor $nombre actualizado con éxito.';
   }
 
   Future<String> toggleStatus(ProveedorModel proveedor, bool isActive) async {

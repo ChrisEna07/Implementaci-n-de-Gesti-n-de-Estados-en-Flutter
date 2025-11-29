@@ -27,4 +27,4 @@ cd priem_desk_gemin
 flutter pub get
 
 # 4. Ejecutar la aplicación
-flutter run
+flutter run

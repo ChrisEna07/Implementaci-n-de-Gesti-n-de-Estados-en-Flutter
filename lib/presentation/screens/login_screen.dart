@@ -14,7 +14,7 @@ class LoginScreen extends ConsumerWidget {
     final emailController = TextEditingController(text: 'admin@taller.com');
     final passwordController = TextEditingController(text: '12345');
 
-    // Muestra errores de autenticación (CA_Login_Error)
+    // Muestra errores de autenticación
     ref.listen<AuthState>(authProvider, (previous, current) {
       if (current.errorMessage != null && current.errorMessage!.isNotEmpty) {
         ScaffoldMessenger.of(
@@ -24,7 +24,7 @@ class LoginScreen extends ConsumerWidget {
     });
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Taller E-commerce Login')),
+      appBar: AppBar(title: const Text('Rafa Motos')),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(32.0),
@@ -41,6 +41,7 @@ class LoginScreen extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 20),
+
               // Input de Contraseña
               TextField(
                 controller: passwordController,
@@ -52,12 +53,12 @@ class LoginScreen extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 30),
+
               // Botón de Login (maneja estado de carga)
               ElevatedButton(
                 onPressed: authState.isLoading
                     ? null
                     : () {
-                        // Llama a la función de login del Notifier
                         authNotifier.login(
                           emailController.text,
                           passwordController.text,
@@ -74,9 +75,19 @@ class LoginScreen extends ConsumerWidget {
                     ? const CircularProgressIndicator(color: Colors.white)
                     : const Text('Iniciar Sesión'),
               ),
-              const SizedBox(height: 10),
-              // Mostrar Rol de prueba
-              const Text('Prueba con: admin@taller.com / 12345'),
+
+              const SizedBox(height: 20),
+
+              // Mostrar usuarios de prueba
+              const Text(
+                'Usuarios de prueba:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+
+              const Text('🔹 Admin → admin@taller.com / 12345'),
+              const Text('🔹 Cliente → cliente@taller.com / 12345'),
+              const Text('🔹 Mecánico → mecanico@taller.com / 12345'),
             ],
           ),
         ),

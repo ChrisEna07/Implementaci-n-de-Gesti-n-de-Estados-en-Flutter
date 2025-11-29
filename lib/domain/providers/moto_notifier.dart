@@ -25,7 +25,7 @@ class MotoNotifier extends StateNotifier<List<MotoModel>> {
   String _getClientName(int clientId) {
     return mockUsers
         .firstWhere((u) => u.id == clientId,
-            orElse: () => UserModel(
+            orElse: () => const UserModel(
                 id: 0,
                 name: 'Desconocido',
                 email: '',
@@ -92,33 +92,6 @@ class MotoNotifier extends StateNotifier<List<MotoModel>> {
     return 'Moto ${moto.placa} actualizada correctamente.';
   }
 
-  // HU_90: Cambiar estado (Activar/Inactivar)
-  Future<String> toggleStatus(MotoModel moto, bool newStatus) async {
-    await Future.delayed(const Duration(milliseconds: 50));
-
-    final updatedMoto = MotoModel(
-      id: moto.id,
-      clientId: moto.clientId,
-      placa: moto.placa,
-      marca: moto.marca,
-      modelo: moto.modelo,
-      anio: moto.anio,
-      color: moto.color,
-      vin: moto.vin,
-      isActive: newStatus,
-    );
-
-    // Actualizar el mock global
-    final index = mockMotos.indexWhere((m) => m.id == moto.id);
-    if (index != -1) {
-      mockMotos[index] = updatedMoto;
-    }
-
-    // Filtrar el estado local para solo mostrar activas (Regla de negocio implícita)
-    state = mockMotos.where((m) => m.isActive).toList();
-
-    return 'Estado de la moto ${moto.placa} cambiado a ${newStatus ? 'Activa' : 'Inactiva'}.';
-  }
 
   // HU_83: Buscar motos por placa o VIN
   void searchMotos(String query) {

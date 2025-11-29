@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/models/appointment_model.dart';
-import '../../data/mock_data/mock_data.dart'; // Para Clients y Motos
+// Para Clients y Motos
 
 // Proveedor para la lista de Agendamientos (HU_40, HU_41, HU_42)
 final appointmentProvider =
@@ -82,7 +82,7 @@ class AppointmentNotifier extends StateNotifier<List<AppointmentModel>> {
         employeeId: employeeId);
     _allAppointments.add(newAppointment);
     _filterAppointments();
-    return 'Agendamiento para ${serviceType} registrado el ${dateTime.toString().substring(0, 16)}.';
+    return 'Agendamiento para $serviceType registrado el ${dateTime.toString().substring(0, 16)}.';
   }
 
   Future<String> editAppointment(AppointmentModel original, DateTime dateTime,

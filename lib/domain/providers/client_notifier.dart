@@ -11,7 +11,7 @@ final clientProvider =
 });
 
 class ClientNotifier extends StateNotifier<List<UserModel>> {
-  ClientNotifier(List<UserModel> initialClients) : super(initialClients);
+  ClientNotifier(super.initialClients);
 
   // Genera un ID mock simple para nuevos clientes
   int _getNextId() {
@@ -24,7 +24,7 @@ class ClientNotifier extends StateNotifier<List<UserModel>> {
   String getClientName(int clientId) {
     return mockUsers
         .firstWhere((u) => u.id == clientId,
-            orElse: () => UserModel(
+            orElse: () => const UserModel(
                 id: 0,
                 name: 'Desconocido',
                 email: '',
@@ -59,7 +59,7 @@ class ClientNotifier extends StateNotifier<List<UserModel>> {
     mockUsers.add(newClient);
 
     // CA_68_03: Mensaje de éxito
-    return 'Cliente "${name}" registrado exitosamente.';
+    return 'Cliente "$name" registrado exitosamente.';
   }
 
   // HU_75: Editar la información de un cliente

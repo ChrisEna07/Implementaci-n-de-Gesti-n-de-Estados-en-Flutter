@@ -30,6 +30,6 @@ class ServiceOrderNotifier extends StateNotifier<List<ServiceOrderModel>> {
       return order;
     }).toList();
 
-    return 'Estado de la orden #${id} actualizado a "$newStatus".';
+    return 'Estado de la orden #$id actualizado a "$newStatus".';
   }
 }
